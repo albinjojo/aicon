@@ -530,7 +530,7 @@ p {
    8. #footer — SHARED
    -------------------------------------------------------------------------- */
 #footer {
-  padding-block: var(--space-xl);
+  padding-block: var(--space-lg);
   border-bottom: none;
 }
 
@@ -538,7 +538,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   flex-wrap: wrap;
 }
 
@@ -547,19 +547,31 @@ p {
 }
 
 .footer-org .site-logo {
-  margin-bottom: var(--space-sm);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-2xs);
 }
 
 .footer-departments {
-  font-size: 0.88rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
   color: var(--color-text-soft);
+  margin-bottom: 0;
 }
 
 .footer-meta {
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  line-height: 1.6;
   color: var(--color-text-soft);
   text-align: right;
+}
+
+.footer-meta p {
+  margin: 0 0 var(--space-2xs);
+}
+
+.footer-meta p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 640px) {
