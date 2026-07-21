@@ -6,10 +6,10 @@
   <title>AI Conclave 2026 — AJCE Kanjirappally</title>
   <meta name="description" content="AI Conclave 2026: a two-day AI event at Amal Jyothi College of Engineering, Kanjirappally, exploring AI across Agriculture, Health & Education." />
 
-  <!-- Google Fonts: Space Grotesk (display) + IBM Plex Serif (body) -->
+  <!-- Google Fonts: IBM Plex Mono (technical display) + IBM Plex Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -54,7 +54,7 @@
          style data strip on a "conference ticket" card, plus the sector key
          legend that recurs through the whole site.
          ========================================================================== -->
-    <section id="hero">
+    <section id="hero" class="dot-field">
       <div class="container">
         <div class="hero-ticket" data-reveal>
           <div class="hero-inner">
@@ -233,8 +233,10 @@
 
     <!-- ==========================================================================
          #panel — "AI Across Sectors" panel discussion. Contains three
-         sub-sections (#panel-agriculture, #panel-health, #panel-education),
-         each listing that track's speakers and moderator.
+         sub-sections (#panel-agriculture, #panel-health, #panel-education).
+         Each is one self-contained card: sector, moderator, then the full
+         speaker roster for that track — nothing to cross-reference against
+         a separate list elsewhere on the page.
          ========================================================================== -->
     <section id="panel" class="section">
       <div class="container">
@@ -244,85 +246,75 @@
           <p class="section-lede">Three tracks, three conversations — practitioners and academics discuss where AI is already changing Agriculture, Health and Education, and where it should go next.</p>
         </div>
 
-        <div class="panel-moderators" data-reveal>
-          <div class="panel-moderator">
-            <span class="stamp stamp-agri">Agriculture</span>
-            <span class="panel-moderator-name">Moderator: Dr. Nikki</span>
-          </div>
-          <div class="panel-moderator">
-            <span class="stamp stamp-health">Health</span>
-            <span class="panel-moderator-name">Moderator: Dr. S.N. Kumar</span>
-          </div>
-          <div class="panel-moderator">
-            <span class="stamp stamp-edu">Education</span>
-            <span class="panel-moderator-name">Moderator: Dr. Soney C. George</span>
-          </div>
+        <div class="panel-grid">
+          <!-- #panel-agriculture -->
+          <section id="panel-agriculture" class="panel-track" data-reveal aria-labelledby="panel-agriculture-heading">
+            <div class="panel-track-head">
+              <span class="stamp stamp-agri">Agriculture</span>
+              <h3 id="panel-agriculture-heading">Agriculture</h3>
+            </div>
+            <p class="panel-track-moderator">Moderated by <span class="panel-moderator-name">Dr. Nikki</span></p>
+            <ul class="panel-speaker-list">
+              <li>
+                <span class="speaker-name">Alexy Binu</span>
+                <span class="speaker-role">Founder &amp; CEO, AetherSphere Ecosystem</span>
+              </li>
+              <li>
+                <span class="speaker-name">Prasad GopalaKrishnan</span>
+                <span class="speaker-role">Retired Professor, TNAU</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- #panel-health -->
+          <section id="panel-health" class="panel-track" data-reveal aria-labelledby="panel-health-heading">
+            <div class="panel-track-head">
+              <span class="stamp stamp-health">Health</span>
+              <h3 id="panel-health-heading">Health</h3>
+            </div>
+            <p class="panel-track-moderator">Moderated by <span class="panel-moderator-name">Dr. S.N. Kumar</span></p>
+            <ul class="panel-speaker-list">
+              <li>
+                <span class="speaker-name">Vivek V. George</span>
+                <span class="speaker-role">MD, Trivia Innovations</span>
+              </li>
+              <li>
+                <span class="speaker-name">Thomas Paulose Nechupadam</span>
+                <span class="speaker-role">Doctorepreneur, PalluDoctor</span>
+              </li>
+              <li>
+                <span class="speaker-name">Robin Tomy</span>
+              </li>
+              <li>
+                <span class="speaker-name">Berin Pathrose</span>
+                <span class="speaker-role">Professor, Pathology, KAU</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- #panel-education -->
+          <section id="panel-education" class="panel-track" data-reveal aria-labelledby="panel-education-heading">
+            <div class="panel-track-head">
+              <span class="stamp stamp-edu">Education</span>
+              <h3 id="panel-education-heading">Education</h3>
+            </div>
+            <p class="panel-track-moderator">Moderated by <span class="panel-moderator-name">Dr. Soney C. George</span></p>
+            <ul class="panel-speaker-list">
+              <li>
+                <span class="speaker-name">Dr. Jagathy Raj V.P.</span>
+                <span class="speaker-role">Vice Chancellor, Sree Narayana Open University</span>
+              </li>
+              <li>
+                <span class="speaker-name">Dr. M.V. Rajesh</span>
+                <span class="speaker-role">Director, IHRD</span>
+              </li>
+              <li>
+                <span class="speaker-name">Dr. Shailesh Sivan</span>
+                <span class="speaker-role">Speaker</span>
+              </li>
+            </ul>
+          </section>
         </div>
-
-        <!-- #panel-agriculture -->
-        <section id="panel-agriculture" class="panel-track" data-reveal aria-labelledby="panel-agriculture-heading">
-          <div class="panel-track-head">
-            <span class="stamp stamp-agri">Agriculture</span>
-            <h3 id="panel-agriculture-heading">Speakers</h3>
-          </div>
-          <div class="speaker-grid tone-agri">
-            <div class="speaker-card">
-              <span class="speaker-name">Alexy Binu</span>
-              <span class="speaker-role">Founder &amp; CEO, AetherSphere Ecosystem</span>
-            </div>
-            <div class="speaker-card">
-              <span class="speaker-name">Prasad GopalaKrishnan</span>
-              <span class="speaker-role">Retired Professor, TNAU</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- #panel-health -->
-        <section id="panel-health" class="panel-track" data-reveal aria-labelledby="panel-health-heading">
-          <div class="panel-track-head">
-            <span class="stamp stamp-health">Health</span>
-            <h3 id="panel-health-heading">Speakers</h3>
-          </div>
-          <div class="speaker-grid tone-health">
-            <div class="speaker-card">
-              <span class="speaker-name">Vivek V. George</span>
-              <span class="speaker-role">MD, Trivia Innovations</span>
-            </div>
-            <div class="speaker-card">
-              <span class="speaker-name">Thomas Paulose Nechupadam</span>
-              <span class="speaker-role">Doctorepreneur, PalluDoctor</span>
-            </div>
-            <div class="speaker-card">
-              <span class="speaker-name">Robin Tomy</span>
-            </div>
-            <div class="speaker-card">
-              <span class="speaker-name">Berin Pathrose</span>
-              <span class="speaker-role">Professor, Pathology, KAU</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- #panel-education -->
-        <section id="panel-education" class="panel-track" data-reveal aria-labelledby="panel-education-heading">
-          <div class="panel-track-head">
-            <span class="stamp stamp-edu">Education</span>
-            <h3 id="panel-education-heading">Speakers</h3>
-          </div>
-          <div class="speaker-grid tone-edu">
-            <div class="speaker-card">
-              <span class="speaker-name">Dr. Jagathy Raj V.P.</span>
-              <span class="speaker-role">Vice Chancellor, Sree Narayana Open University</span>
-            </div>
-            <div class="speaker-card">
-              <span class="speaker-name">Dr. M.V. Rajesh</span>
-              <span class="speaker-role">Director, IHRD</span>
-            </div>
-            <div class="speaker-card">
-              <span class="speaker-name">Dr. Shailesh Sivan</span>
-              <span class="speaker-role">Speaker</span>
-            </div>
-          </div>
-        </section>
       </div>
     </section>
 
@@ -371,7 +363,7 @@
 
         <div class="participants-grid">
           <!-- #participants-agri -->
-          <div id="participants-agri" class="participant-group tone-agri" data-reveal>
+          <div id="participants-agri" class="participant-group" data-reveal>
             <span class="stamp stamp-agri">Agriculture</span>
             <h3>Agriculture</h3>
             <ul class="participant-list">
@@ -383,7 +375,7 @@
           </div>
 
           <!-- #participants-health -->
-          <div id="participants-health" class="participant-group tone-health" data-reveal>
+          <div id="participants-health" class="participant-group" data-reveal>
             <span class="stamp stamp-health">Health</span>
             <h3>Health</h3>
             <ul class="participant-list">
@@ -395,7 +387,7 @@
           </div>
 
           <!-- #participants-edu -->
-          <div id="participants-edu" class="participant-group tone-edu" data-reveal>
+          <div id="participants-edu" class="participant-group" data-reveal>
             <span class="stamp stamp-edu">Education</span>
             <h3>Education</h3>
             <ul class="participant-list">
