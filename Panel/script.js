@@ -1,19 +1,16 @@
 /* ==========================================================================
-   AI CONCLAVE 2026 — MAIN SITE SCRIPT
-   Small, named functions, one per feature. Runs on both index.html and
-   register.html (shared header/nav), so every function must be safe to call
-   even when its target elements aren't on the current page.
+   AI CONCLAVE 2026 — PANEL DISCUSSION PAGE SCRIPT
+   Shared core (initMobileNav + initScrollReveal) — same as every other
+   page's script.js. Panel has no page-specific behaviour beyond that.
 
    CONTENTS
-   1. initMobileNav()        — hamburger toggle for the sticky header
-   2. initScrollReveal()     — fade/slide-in for [data-reveal] elements
-   3. initActiveNavLink()    — highlights the nav link for the section in view
+   1. initMobileNav()    — hamburger toggle for the sticky header
+   2. initScrollReveal() — fade/slide-in for [data-reveal] elements
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
   initScrollReveal();
-  initActiveNavLink();
 });
 
 /**
@@ -34,8 +31,6 @@ function initMobileNav() {
     document.body.classList.toggle("nav-open", isOpen);
   });
 
-  // Close the mobile nav after a link is picked, so it doesn't stay open
-  // when the user lands on the target section.
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("is-open");
@@ -78,44 +73,4 @@ function initScrollReveal() {
   );
 
   revealEls.forEach((el) => observer.observe(el));
-}
-
-/**
- * Highlights the primary nav link matching whichever top-level
- * section is currently in view, so the nav doubles as a progress
- * indicator on the long index.html page.
- */
-function initActiveNavLink() {
-  const navLinks = document.querySelectorAll(".main-nav-list a[href^='#']");
-
-  if (!navLinks.length) {
-    return;
-  }
-
-  const sections = Array.from(navLinks)
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
-
-  if (!sections.length || !("IntersectionObserver" in window)) {
-    return;
-  }
-
-  const setActiveLink = (id) => {
-    navLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
-    });
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
-        }
-      });
-    },
-    { rootMargin: "-45% 0px -45% 0px" }
-  );
-
-  sections.forEach((section) => observer.observe(section));
 }

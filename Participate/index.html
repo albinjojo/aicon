@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who Should Attend — AI Conclave 2026</title>
+  <meta name="description" content="Who should attend AI Conclave 2026 — audience groups across Agriculture, Health and Education." />
+
+  <!-- Google Fonts: IBM Plex Mono (technical display) + IBM Plex Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ==========================================================================
+       SITE HEADER — identical nav on every page, one folder up (../) to
+       reach Home and any sibling section folder. This page's own link
+       carries is-active / aria-current.
+       ========================================================================== -->
+  <header id="site-header">
+    <div class="container header-bar">
+      <a class="site-logo" href="../index.html">
+        AI CONCLAVE
+        <span class="logo-year">2026 · AJCE KANJIRAPPALLY</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" id="nav-toggle">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../About/index.html">About</a></li>
+          <li><a href="../Schedule/index.html">Schedule</a></li>
+          <li><a href="../Panel/index.html">Panel</a></li>
+          <li><a href="../Hackathon/index.html">Hackathon</a></li>
+          <li><a href="../Participate/index.html" class="is-active" aria-current="page">Participate</a></li>
+          <li><a class="btn btn-primary nav-cta" href="../Register/index.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==========================================================================
+         #participants — "who should attend", grouped by the three sectors
+         (#participants-agri, #participants-health, #participants-edu).
+         ========================================================================== -->
+    <section id="participants" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Who Should Attend</p>
+          <h1 class="section-heading">Built for people working across all three sectors.</h1>
+          <p class="section-lede">AI Conclave 2026 is open to anyone with a stake in how AI touches Agriculture, Health or Education — students, practitioners and decision-makers alike.</p>
+        </div>
+
+        <div class="participants-grid">
+          <!-- #participants-agri -->
+          <div id="participants-agri" class="participant-group" data-reveal>
+            <span class="stamp stamp-agri">Agriculture</span>
+            <h2>Agriculture</h2>
+            <ul class="participant-list">
+              <li>Farmers and agripreneurs</li>
+              <li>Agri-tech startups and innovators</li>
+              <li>Krishi Vigyan Kendra and extension officials</li>
+              <li>Agriculture students and researchers</li>
+            </ul>
+          </div>
+
+          <!-- #participants-health -->
+          <div id="participants-health" class="participant-group" data-reveal>
+            <span class="stamp stamp-health">Health</span>
+            <h2>Health</h2>
+            <ul class="participant-list">
+              <li>Doctors and healthcare professionals</li>
+              <li>Hospital and health system administrators</li>
+              <li>Medical, nursing and allied health students</li>
+              <li>Health-tech startups and innovators</li>
+            </ul>
+          </div>
+
+          <!-- #participants-edu -->
+          <div id="participants-edu" class="participant-group" data-reveal>
+            <span class="stamp stamp-edu">Education</span>
+            <h2>Education</h2>
+            <ul class="participant-list">
+              <li>Teachers and faculty</li>
+              <li>School and college administrators</li>
+              <li>Ed-tech innovators and startups</li>
+              <li>Education policy researchers and students</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       #footer — organiser credit for the AI Club / Student Council and the
+       five co-organising departments.
+       ========================================================================== -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-org">
+        <span class="site-logo">AI CONCLAVE <span class="logo-year">2026</span></span>
+        <p class="footer-departments">Organised by the AI Club &amp; Student Council, Amal Jyothi College of Engineering, Kanjirappally, in association with the Departments of Computer Applications (CA), Computer Science &amp; Engineering (CSE), Artificial Intelligence &amp; Data Science (AD), Electronics &amp; Communication Engineering (ECE) and Electrical &amp; Electronics Engineering (EEE).</p>
+      </div>
+      <div class="footer-meta">
+        <p>Amal Jyothi College of Engineering<br />Kanjirappally, Kerala</p>
+        <p>&copy; 2026 AI Conclave</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

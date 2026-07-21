@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Discussion — AI Conclave 2026</title>
+  <meta name="description" content="Panel Discussion: AI Across Sectors — speakers and moderators for Agriculture, Health and Education at AI Conclave 2026." />
+
+  <!-- Google Fonts: IBM Plex Mono (technical display) + IBM Plex Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ==========================================================================
+       SITE HEADER — identical nav on every page, one folder up (../) to
+       reach Home and any sibling section folder. This page's own link
+       carries is-active / aria-current.
+       ========================================================================== -->
+  <header id="site-header">
+    <div class="container header-bar">
+      <a class="site-logo" href="../index.html">
+        AI CONCLAVE
+        <span class="logo-year">2026 · AJCE KANJIRAPPALLY</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" id="nav-toggle">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../About/index.html">About</a></li>
+          <li><a href="../Schedule/index.html">Schedule</a></li>
+          <li><a href="../Panel/index.html" class="is-active" aria-current="page">Panel</a></li>
+          <li><a href="../Hackathon/index.html">Hackathon</a></li>
+          <li><a href="../Participate/index.html">Participate</a></li>
+          <li><a class="btn btn-primary nav-cta" href="../Register/index.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==========================================================================
+         #panel — "AI Across Sectors" panel discussion. Contains three
+         sub-sections (#panel-agriculture, #panel-health, #panel-education).
+         Each is one self-contained card: sector, moderator, then the full
+         speaker roster for that track — nothing to cross-reference against
+         a separate list elsewhere on the page.
+         ========================================================================== -->
+    <section id="panel" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Day 1 · 10:30 AM</p>
+          <h1 class="section-heading">Panel Discussion: AI Across Sectors</h1>
+          <p class="section-lede">Three tracks, three conversations — practitioners and academics discuss where AI is already changing Agriculture, Health and Education, and where it should go next.</p>
+        </div>
+
+        <div class="panel-grid">
+          <!-- #panel-agriculture -->
+          <section id="panel-agriculture" class="panel-track" data-reveal aria-labelledby="panel-agriculture-heading">
+            <div class="panel-track-head">
+              <span class="stamp stamp-agri">Agriculture</span>
+              <h2 id="panel-agriculture-heading">Agriculture</h2>
+            </div>
+            <p class="panel-track-moderator">Moderated by <span class="panel-moderator-name">Dr. Nikki</span></p>
+            <ul class="panel-speaker-list">
+              <li>
+                <span class="speaker-name">Alexy Binu</span>
+                <span class="speaker-role">Founder &amp; CEO, AetherSphere Ecosystem</span>
+              </li>
+              <li>
+                <span class="speaker-name">Prasad GopalaKrishnan</span>
+                <span class="speaker-role">Retired Professor, TNAU</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- #panel-health -->
+          <section id="panel-health" class="panel-track" data-reveal aria-labelledby="panel-health-heading">
+            <div class="panel-track-head">
+              <span class="stamp stamp-health">Health</span>
+              <h2 id="panel-health-heading">Health</h2>
+            </div>
+            <p class="panel-track-moderator">Moderated by <span class="panel-moderator-name">Dr. S.N. Kumar</span></p>
+            <ul class="panel-speaker-list">
+              <li>
+                <span class="speaker-name">Vivek V. George</span>
+                <span class="speaker-role">MD, Trivia Innovations</span>
+              </li>
+              <li>
+                <span class="speaker-name">Thomas Paulose Nechupadam</span>
+                <span class="speaker-role">Doctorepreneur, PalluDoctor</span>
+              </li>
+              <li>
+                <span class="speaker-name">Robin Tomy</span>
+              </li>
+              <li>
+                <span class="speaker-name">Berin Pathrose</span>
+                <span class="speaker-role">Professor, Pathology, KAU</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- #panel-education -->
+          <section id="panel-education" class="panel-track" data-reveal aria-labelledby="panel-education-heading">
+            <div class="panel-track-head">
+              <span class="stamp stamp-edu">Education</span>
+              <h2 id="panel-education-heading">Education</h2>
+            </div>
+            <p class="panel-track-moderator">Moderated by <span class="panel-moderator-name">Dr. Soney C. George</span></p>
+            <ul class="panel-speaker-list">
+              <li>
+                <span class="speaker-name">Dr. Jagathy Raj V.P.</span>
+                <span class="speaker-role">Vice Chancellor, Sree Narayana Open University</span>
+              </li>
+              <li>
+                <span class="speaker-name">Dr. M.V. Rajesh</span>
+                <span class="speaker-role">Director, IHRD</span>
+              </li>
+              <li>
+                <span class="speaker-name">Dr. Shailesh Sivan</span>
+                <span class="speaker-role">Speaker</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       #footer — organiser credit for the AI Club / Student Council and the
+       five co-organising departments.
+       ========================================================================== -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-org">
+        <span class="site-logo">AI CONCLAVE <span class="logo-year">2026</span></span>
+        <p class="footer-departments">Organised by the AI Club &amp; Student Council, Amal Jyothi College of Engineering, Kanjirappally, in association with the Departments of Computer Applications (CA), Computer Science &amp; Engineering (CSE), Artificial Intelligence &amp; Data Science (AD), Electronics &amp; Communication Engineering (ECE) and Electrical &amp; Electronics Engineering (EEE).</p>
+      </div>
+      <div class="footer-meta">
+        <p>Amal Jyothi College of Engineering<br />Kanjirappally, Kerala</p>
+        <p>&copy; 2026 AI Conclave</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

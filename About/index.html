@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — AI Conclave 2026</title>
+  <meta name="description" content="AI Conclave 2026 is a two-day flagship AI event at AJCE spanning Agriculture, Health and Education, built around dialogue rather than one-way talks." />
+
+  <!-- Google Fonts: IBM Plex Mono (technical display) + IBM Plex Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ==========================================================================
+       SITE HEADER — identical nav on every page, one folder up (../) to
+       reach Home and any sibling section folder. This page's own link
+       carries is-active / aria-current.
+       ========================================================================== -->
+  <header id="site-header">
+    <div class="container header-bar">
+      <a class="site-logo" href="../index.html">
+        AI CONCLAVE
+        <span class="logo-year">2026 · AJCE KANJIRAPPALLY</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" id="nav-toggle">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../About/index.html" class="is-active" aria-current="page">About</a></li>
+          <li><a href="../Schedule/index.html">Schedule</a></li>
+          <li><a href="../Panel/index.html">Panel</a></li>
+          <li><a href="../Hackathon/index.html">Hackathon</a></li>
+          <li><a href="../Participate/index.html">Participate</a></li>
+          <li><a class="btn btn-primary nav-cta" href="../Register/index.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==========================================================================
+         #about — what the conclave is: 2-day flagship AI event spanning
+         Agriculture/Health/Education, 2000+ expected participants, and the
+         "dialogue not lecture" format.
+         ========================================================================== -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div data-reveal>
+          <p class="eyebrow">About the Conclave</p>
+          <h1 class="section-heading">A flagship dialogue on AI, not another lecture series.</h1>
+          <p class="section-lede">AI Conclave 2026 is a two-day flagship event bringing artificial intelligence out of the lab and into three sectors that shape everyday life in Kerala: Agriculture, Health and Education. Rather than one-way talks, the conclave is built around dialogue — a panel discussion that puts practitioners and academics in conversation, hands-on department-led workshops, and a hackathon where students build.</p>
+          <p class="section-lede">Organised by the AI Club and Student Council of Amal Jyothi College of Engineering, in association with the Departments of Computer Applications, Computer Science &amp; Engineering, Artificial Intelligence &amp; Data Science, Electronics &amp; Communication Engineering, and Electrical &amp; Electronics Engineering.</p>
+        </div>
+
+        <div data-reveal>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="about-stat-figure mono-figure">2</span>
+              <span class="about-stat-label">Days</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-figure mono-figure">2000+</span>
+              <span class="about-stat-label">Expected participants</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-figure mono-figure">3</span>
+              <span class="about-stat-label">Sectors — Agri, Health, Edu</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-figure mono-figure">5</span>
+              <span class="about-stat-label">Departments co-organising</span>
+            </div>
+          </div>
+          <p class="about-principle">Format: dialogue-driven, not one-way talks — panel discussion, parallel workshops, and a hackathon in place of a straight lecture track.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       #footer — organiser credit for the AI Club / Student Council and the
+       five co-organising departments.
+       ========================================================================== -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-org">
+        <span class="site-logo">AI CONCLAVE <span class="logo-year">2026</span></span>
+        <p class="footer-departments">Organised by the AI Club &amp; Student Council, Amal Jyothi College of Engineering, Kanjirappally, in association with the Departments of Computer Applications (CA), Computer Science &amp; Engineering (CSE), Artificial Intelligence &amp; Data Science (AD), Electronics &amp; Communication Engineering (ECE) and Electrical &amp; Electronics Engineering (EEE).</p>
+      </div>
+      <div class="footer-meta">
+        <p>Amal Jyothi College of Engineering<br />Kanjirappally, Kerala</p>
+        <p>&copy; 2026 AI Conclave</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

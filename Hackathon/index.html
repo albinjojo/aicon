@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hackathon — AI Conclave 2026</title>
+  <meta name="description" content="AI Conclave 2026 Hackathon — Technical and Non-Technical tracks for school & college students, Day 2, 9:30 AM to 2:30 PM, prize pool ₹1,00,000." />
+
+  <!-- Google Fonts: IBM Plex Mono (technical display) + IBM Plex Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ==========================================================================
+       SITE HEADER — identical nav on every page, one folder up (../) to
+       reach Home and any sibling section folder. This page's own link
+       carries is-active / aria-current.
+       ========================================================================== -->
+  <header id="site-header">
+    <div class="container header-bar">
+      <a class="site-logo" href="../index.html">
+        AI CONCLAVE
+        <span class="logo-year">2026 · AJCE KANJIRAPPALLY</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" id="nav-toggle">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../About/index.html">About</a></li>
+          <li><a href="../Schedule/index.html">Schedule</a></li>
+          <li><a href="../Panel/index.html">Panel</a></li>
+          <li><a href="../Hackathon/index.html" class="is-active" aria-current="page">Hackathon</a></li>
+          <li><a href="../Participate/index.html">Participate</a></li>
+          <li><a class="btn btn-primary nav-cta" href="../Register/index.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==========================================================================
+         #hackathon — Day 2 highlight: Technical / Non-Technical tracks and the
+         ₹1,00,000 prize pool.
+         ========================================================================== -->
+    <section id="hackathon" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Day 2 · 9:30 AM – 2:30 PM</p>
+          <h1 class="section-heading">Hackathon</h1>
+          <p class="section-lede">Open to school and college students. Build across two tracks, get evaluated the same day, and take the stage at the valedictory function.</p>
+        </div>
+
+        <div class="hackathon-grid" data-reveal>
+          <div class="hackathon-track">
+            <span class="hackathon-track-label">Track 01</span>
+            <h2>Technical</h2>
+            <p>For students building AI-driven solutions with code — open to school &amp; college participants.</p>
+          </div>
+          <div class="hackathon-track">
+            <span class="hackathon-track-label">Track 02</span>
+            <h2>Non-Technical</h2>
+            <p>For students tackling AI problem statements through ideation, strategy and design — open to school &amp; college participants.</p>
+          </div>
+          <div class="hackathon-prize">
+            <span class="hackathon-prize-label">Prize Pool</span>
+            <span class="hackathon-prize-figure mono-figure">₹1,00,000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       #footer — organiser credit for the AI Club / Student Council and the
+       five co-organising departments.
+       ========================================================================== -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-org">
+        <span class="site-logo">AI CONCLAVE <span class="logo-year">2026</span></span>
+        <p class="footer-departments">Organised by the AI Club &amp; Student Council, Amal Jyothi College of Engineering, Kanjirappally, in association with the Departments of Computer Applications (CA), Computer Science &amp; Engineering (CSE), Artificial Intelligence &amp; Data Science (AD), Electronics &amp; Communication Engineering (ECE) and Electrical &amp; Electronics Engineering (EEE).</p>
+      </div>
+      <div class="footer-meta">
+        <p>Amal Jyothi College of Engineering<br />Kanjirappally, Kerala</p>
+        <p>&copy; 2026 AI Conclave</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,869 @@
+/* ==========================================================================
+   AI CONCLAVE 2026 — HOME PAGE STYLESHEET
+   Theme: "Signal Field" — Nothing OS-inspired white/black/red glyph
+   language: near-white base, dot-matrix-style monospace display type, and
+   one red signal color used for CTAs, key figures and active states.
+
+   This file is self-contained on purpose: the site is split one page per
+   folder (Home here, plus About/, Schedule/, Panel/, Hackathon/,
+   Participate/, Register/), and every folder carries its own copy of this
+   same shared design system so a volunteer can open one folder and have
+   everything they need, without hunting through a shared stylesheet.
+   Blocks 1–6 and the footer/reveal/reduced-motion blocks at the bottom are
+   IDENTICAL across every folder's style.css — leave them alone unless
+   you're changing the design system for the whole site. Block 7 is this
+   page's own content and is the one you're meant to edit here.
+
+   CONTENTS
+   1.  Custom properties (design tokens) — SHARED
+   2.  Reset & base — SHARED
+   3.  Typography utilities — SHARED
+   4.  Layout utilities — SHARED
+   5.  Buttons & sector stamps — SHARED
+   6.  #site-header — SHARED
+   7.  #hero + #explore — THIS PAGE
+   8.  #footer — SHARED
+   9.  Scroll-reveal animation hook — SHARED
+   10. Reduced motion — SHARED
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Custom properties — SHARED
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-base: #fafafa;
+  --color-surface: #f0f0ec;
+  --color-surface-alt: #e6e6e1;
+  --color-text: #0a0a0a;
+  --color-text-soft: #63635c;
+  --color-line: rgba(10, 10, 10, 0.08);
+  --color-line-strong: #8f8f86;
+
+  /* Signal red does three different jobs, each with its own contrast
+     requirement, so it needs three values: a vivid red for fills/borders/
+     large text (only needs 3:1), a brighter "lit up" red for button hover,
+     and a deepened red safe as small body-size text on the light base
+     (needs 4.5:1 — the vivid red alone only clears 3.7:1 there). */
+  --color-signal: #ff1e1e;
+  --color-signal-bright: #ff4545;
+  --color-signal-text: #d21414;
+
+  /* Type. Display is a technical monospace — keeps the spec-sheet/readout
+     feel without trading away legibility — used for short system-style
+     text: numbers, labels, nav, buttons. Body (same Plex family, so the
+     pairing reads as one deliberate system) carries anything meant to be
+     read at length or a real person's name. */
+  --font-display: "IBM Plex Mono", "Space Grotesk", monospace;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+
+  /* Spacing scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5.5rem;
+
+  /* Layout */
+  --container-width: 1180px;
+  --border-thin: 1px solid var(--color-line);
+  --border-strong: 1px solid var(--color-line-strong);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & base — SHARED
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-base);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Skip link — keyboard accessibility */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-signal);
+  color: var(--color-text);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 200;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: var(--space-md);
+  top: var(--space-md);
+}
+
+/* Visible keyboard focus states throughout the site */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-signal);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography utilities — SHARED
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 var(--space-sm);
+  letter-spacing: 0;
+}
+
+p {
+  margin: 0 0 var(--space-md);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-sm);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+  display: inline-block;
+}
+
+.section-heading {
+  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  max-width: 32ch;
+}
+
+.section-lede {
+  max-width: 62ch;
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+}
+
+.mono-figure {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout utilities — SHARED
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+.section {
+  padding-block: var(--space-2xl);
+  border-bottom: var(--border-thin);
+}
+
+.section-head {
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: var(--space-xl);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons & sector stamps — SHARED
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.9em 1.6em;
+  border: var(--border-strong);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* The signal color's one big job: the primary call to action. Text stays
+   near-black, not white — on this red, dark text clears AA contrast and
+   light text doesn't. Hover goes brighter, not darker — a small nod to
+   Nothing's glyph lights turning up rather than dimming, and it happens
+   to raise the text contrast further rather than eroding it. */
+.btn-primary {
+  background: var(--color-signal);
+  border-color: var(--color-signal);
+  color: var(--color-text);
+}
+
+.btn-primary:hover {
+  background: var(--color-signal-bright);
+  border-color: var(--color-signal-bright);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-line-strong);
+}
+
+.btn-outline:hover {
+  background: var(--color-text);
+  color: var(--color-base);
+  border-color: var(--color-text);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-arrow {
+  transition: transform 0.15s ease;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Sector stamp — the site's recurring wayfinding chip. Every speaker,
+   schedule row and audience group tied to a sector carries one of these.
+   Sectors share the one signal color; only the dot's shape changes
+   (square / circle / triangle), so the system stays down to a single
+   accent instead of three separate hues. */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3em 0.6em;
+  color: var(--color-text);
+  border: var(--border-strong);
+  white-space: nowrap;
+}
+
+.stamp::before {
+  content: "";
+  width: 0.55em;
+  height: 0.55em;
+  background: var(--color-signal);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.stamp-agri::before {
+  border-radius: 0;
+  clip-path: none;
+}
+
+.stamp-health::before {
+  border-radius: 50%;
+}
+
+.stamp-edu::before {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Sector key legend, reused in hero + panel + participants intros */
+.sector-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   6. #site-header — SHARED
+   -------------------------------------------------------------------------- */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-base);
+  border-bottom: var(--border-strong);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-sm);
+}
+
+.site-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-logo .logo-year {
+  font-size: 0.7rem;
+  color: var(--color-text-soft);
+  letter-spacing: 0.12em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.main-nav-list {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.main-nav-list a {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding-block: var(--space-2xs);
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav-list a:hover,
+.main-nav-list a.is-active {
+  border-bottom-color: var(--color-signal);
+}
+
+.nav-cta {
+  padding: 0.55em 1.2em;
+  font-size: 0.8rem;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: var(--border-strong);
+  padding: 0.4rem 0.55rem;
+  cursor: pointer;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  margin: 4px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: fixed;
+    inset: 0 0 0 30%;
+    top: 57px;
+    background: var(--color-surface);
+    border-left: var(--border-strong);
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-lg) var(--space-md);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+  }
+
+  .main-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .nav-cta {
+    margin-top: var(--space-md);
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-nav {
+    inset: 0;
+    top: 57px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. #hero + #explore — THIS PAGE (Home)
+   -------------------------------------------------------------------------- */
+
+/* Scattered red-dot field — the site's signature "wallpaper" moment,
+   modelled on the random dot-scatter look of Nothing's own wallpapers.
+   Twenty dots at deliberately irregular positions/sizes/opacities inside
+   one 400×400 tile, repeated. Only used on Home's hero, so it lives here
+   rather than in the shared blocks above. */
+.dot-field {
+  background-color: var(--color-base);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  background-image:
+    radial-gradient(circle at 18px 34px, rgba(255, 30, 30, 1) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 62px 12px, rgba(255, 30, 30, 0.65) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 121px 58px, rgba(255, 30, 30, 0.95) 0 2px, transparent 2.1px),
+    radial-gradient(circle at 89px 143px, rgba(255, 30, 30, 0.55) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 205px 27px, rgba(255, 30, 30, 0.85) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 178px 96px, rgba(255, 30, 30, 0.65) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 244px 152px, rgba(255, 30, 30, 1) 0 2.5px, transparent 2.6px),
+    radial-gradient(circle at 311px 44px, rgba(255, 30, 30, 0.6) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 356px 118px, rgba(255, 30, 30, 0.8) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 27px 210px, rgba(255, 30, 30, 0.65) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 96px 245px, rgba(255, 30, 30, 0.9) 0 2px, transparent 2.1px),
+    radial-gradient(circle at 152px 288px, rgba(255, 30, 30, 0.55) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 218px 233px, rgba(255, 30, 30, 0.75) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 268px 301px, rgba(255, 30, 30, 0.6) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 334px 262px, rgba(255, 30, 30, 1) 0 2px, transparent 2.1px),
+    radial-gradient(circle at 372px 340px, rgba(255, 30, 30, 0.65) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 58px 356px, rgba(255, 30, 30, 0.85) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 141px 378px, rgba(255, 30, 30, 0.55) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 296px 373px, rgba(255, 30, 30, 0.7) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 8px 130px, rgba(255, 30, 30, 0.5) 0 1px, transparent 1.1px);
+}
+
+#hero {
+  padding-block: var(--space-2xl) var(--space-xl);
+  border-bottom: var(--border-thin);
+}
+
+.hero-ticket {
+  position: relative;
+  border: var(--border-strong);
+  background-color: var(--color-surface);
+  background-image:
+    repeating-linear-gradient(0deg, var(--color-line) 0, var(--color-line) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, var(--color-line) 0, var(--color-line) 1px, transparent 1px, transparent 40px);
+  padding: var(--space-xl) var(--space-lg) 0;
+}
+
+/* Punch notches on the top-left/top-right corners of the ticket, each its
+   own pseudo-element so they stay pinned to the card's own edges at any
+   width (rather than the viewport's). They read as holes cut through to
+   the red dot field behind the card. */
+.hero-ticket::before,
+.hero-ticket::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-base);
+  border: var(--border-strong);
+}
+
+.hero-ticket::before {
+  left: -14px;
+}
+
+.hero-ticket::after {
+  right: -14px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+.hero-badge-no {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+  text-align: right;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 1.7rem + 5vw, 5.5rem);
+  margin: 0 0 var(--space-md);
+  text-transform: uppercase;
+}
+
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem);
+  max-width: 46ch;
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+/* Perforated tear line above the boarding-pass style data strip */
+.hero-perforation {
+  position: relative;
+  z-index: 1;
+  border-top: 2px dashed var(--color-line-strong);
+  margin: 0 calc(var(--space-lg) * -1);
+}
+
+.hero-perforation::before,
+.hero-perforation::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-line-strong);
+}
+
+.hero-perforation::before {
+  left: -13px;
+}
+
+.hero-perforation::after {
+  right: -13px;
+}
+
+.hero-strip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 calc(var(--space-lg) * -1);
+  padding: 0 var(--space-lg);
+}
+
+.hero-strip-item {
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  border-left: var(--border-thin);
+}
+
+.hero-strip-item:first-child {
+  border-left: none;
+}
+
+.hero-strip-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-soft);
+  margin-bottom: 0.4em;
+}
+
+.hero-strip-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.hero-key {
+  margin-top: var(--space-lg);
+  padding: var(--space-md) 0 var(--space-lg);
+}
+
+@media (max-width: 720px) {
+  .hero-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-strip-item {
+    border-left: none;
+    border-top: var(--border-thin);
+    padding-inline: 0;
+  }
+
+  .hero-strip-item:first-child {
+    border-top: none;
+  }
+
+  .hero-ticket {
+    padding-inline: var(--space-md);
+  }
+
+  .hero-perforation,
+  .hero-strip {
+    margin-inline: calc(var(--space-md) * -1);
+  }
+
+  .hero-strip {
+    padding-inline: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-top {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .hero-badge-no {
+    text-align: left;
+  }
+}
+
+/* #explore — one card per page, linking out to every other folder */
+.page-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.page-link-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  border: var(--border-thin);
+  border-top: 3px solid var(--color-signal);
+  padding: var(--space-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.page-link-card:hover {
+  background: var(--color-surface);
+}
+
+.page-link-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.page-link-desc {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.page-link-arrow {
+  font-family: var(--font-display);
+  color: var(--color-signal);
+  align-self: flex-end;
+  transition: transform 0.15s ease;
+}
+
+.page-link-card:hover .page-link-arrow {
+  transform: translateX(3px);
+}
+
+/* The Register card is the one conversion action on this grid, so it
+   gets the full signal-red treatment instead of just the top accent —
+   same "dark text on red" contrast rule as .btn-primary. */
+.page-link-card-cta {
+  background: var(--color-signal);
+  border-color: var(--color-signal);
+}
+
+.page-link-card-cta:hover {
+  background: var(--color-signal-bright);
+  border-color: var(--color-signal-bright);
+}
+
+.page-link-card-cta .page-link-title,
+.page-link-card-cta .page-link-desc,
+.page-link-card-cta .page-link-arrow {
+  color: var(--color-text);
+}
+
+@media (max-width: 900px) {
+  .page-links-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. #footer — SHARED
+   -------------------------------------------------------------------------- */
+#footer {
+  padding-block: var(--space-xl);
+  border-bottom: none;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.footer-org {
+  max-width: 46ch;
+}
+
+.footer-org .site-logo {
+  margin-bottom: var(--space-sm);
+}
+
+.footer-departments {
+  font-size: 0.88rem;
+  color: var(--color-text-soft);
+}
+
+.footer-meta {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .footer-meta {
+    text-align: left;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Scroll-reveal animation hook (see script.js initScrollReveal) — SHARED
+   -------------------------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   10. Reduced motion — SHARED
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
