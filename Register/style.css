@@ -119,6 +119,20 @@ button {
   top: var(--space-md);
 }
 
+/* Scroll progress — thin signal-red bar pinned to the very top of the
+   viewport, filled by initScrollProgress() in proportion to scroll
+   position. Purely decorative/aria-hidden, so no fallback needed. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--color-signal);
+  z-index: 150;
+  transition: width 0.1s linear;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -656,7 +670,7 @@ p {
    8. #footer — SHARED
    -------------------------------------------------------------------------- */
 #footer {
-  padding-block: var(--space-lg);
+  padding-block: var(--space-md);
   border-bottom: none;
 }
 
@@ -673,21 +687,21 @@ p {
 }
 
 .footer-org .site-logo {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin-bottom: var(--space-2xs);
 }
 
 .footer-departments {
-  font-size: 0.78rem;
-  line-height: 1.5;
+  font-size: 0.74rem;
+  line-height: 1.4;
   color: var(--color-text-soft);
   margin-bottom: 0;
 }
 
 .footer-meta {
   font-family: var(--font-display);
-  font-size: 0.72rem;
-  line-height: 1.6;
+  font-size: 0.7rem;
+  line-height: 1.5;
   color: var(--color-text-soft);
   text-align: right;
 }

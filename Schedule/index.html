@@ -15,6 +15,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ==========================================================================
        SITE HEADER — identical nav on every page, one folder up (../) to
@@ -60,6 +61,18 @@
         <p class="section-lede">Two days, laid out end to end — registration through valedictory. Times and venues are fixed by the organisers.</p>
       </div>
     </section>
+
+    <!-- ==========================================================================
+         Day toggle — lets a reader flip between Day 1 and Day 2 instead of
+         scanning both tables at once (see script.js initScheduleTabs()).
+         Without JS both days simply stay visible, so nothing is lost.
+         ========================================================================== -->
+    <div class="container day-toggle-wrap">
+      <div class="day-toggle" role="group" aria-label="Select schedule day">
+        <button type="button" class="day-toggle-btn is-active" data-day-target="1" aria-pressed="true">Day 1</button>
+        <button type="button" class="day-toggle-btn" data-day-target="2" aria-pressed="false">Day 2</button>
+      </div>
+    </div>
 
     <!-- ==========================================================================
          #schedule-day1 — Day 1 programme as a ledger-style table (time / event
@@ -118,7 +131,7 @@
         <div class="section-head" data-reveal>
           <p class="eyebrow">Day 1 · 10:30 AM</p>
           <h2 class="section-heading">Panel Discussion: AI Across Sectors</h2>
-          <p class="section-lede">Three tracks, three conversations — practitioners and academics discuss where AI is already changing Agriculture, Health and Education, and where it should go next.</p>
+          <p class="section-lede">Industry leaders and academic experts come together to discuss how Artificial Intelligence is transforming Kerala's agriculture, healthcare and education sectors — three tracks, three conversations, each looking at where AI is already changing the sector and where it should go next.</p>
         </div>
 
         <div class="panel-grid">
@@ -246,7 +259,7 @@
     <div class="container footer-grid">
       <div class="footer-org">
         <span class="site-logo">AI CONCLAVE <span class="logo-year">2026</span></span>
-        <p class="footer-departments">Organised by the AI Club &amp; Student Council, Amal Jyothi College of Engineering, Kanjirappally, in association with the Departments of Computer Applications (CA), Computer Science &amp; Engineering (CSE), Artificial Intelligence &amp; Data Science (AD), Electronics &amp; Communication Engineering (ECE) and Electrical &amp; Electronics Engineering (EEE).</p>
+        <p class="footer-departments">Organised by AI Club, Student Council &ndash; AJCE &middot; CA &middot; CSE &middot; AD &middot; ECE &middot; EEE</p>
       </div>
       <div class="footer-meta">
         <p>Amal Jyothi College of Engineering<br />Kanjirappally, Kerala</p>
