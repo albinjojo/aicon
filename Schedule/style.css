@@ -14,7 +14,7 @@
    4.  Layout utilities — SHARED
    5.  Buttons & sector stamps — SHARED
    6.  #site-header — SHARED
-   7.  #schedule-day1 / #schedule-day2 — THIS PAGE
+   7.  #schedule-day1 / #schedule-day2 / #panel — THIS PAGE
    8.  #footer — SHARED
    9.  Scroll-reveal animation hook — SHARED
    10. Reduced motion — SHARED
@@ -448,7 +448,7 @@ p {
 }
 
 /* --------------------------------------------------------------------------
-   7. #schedule-day1 / #schedule-day2 — THIS PAGE
+   7. #schedule-day1 / #schedule-day2 / #panel — THIS PAGE
    -------------------------------------------------------------------------- */
 .page-header {
   padding-block: var(--space-xl) var(--space-lg);
@@ -538,6 +538,83 @@ p {
   .schedule-table td {
     border-bottom: none;
     padding: 0.2rem 0;
+  }
+}
+
+/* #panel — the 10:30 AM Day 1 row above, elaborated. Each track is one
+   self-contained, bordered card: sector, moderator and full speaker
+   roster together. Same 3-column card pattern as #participants (see
+   Participate/style.css), so the sector system reads the same way twice
+   across the site instead of two different layouts. */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.panel-track {
+  border: var(--border-thin);
+  border-top: 3px solid var(--color-signal);
+  padding: var(--space-lg);
+}
+
+.panel-track-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.panel-track-head h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+/* Real names stay in the body face — legible over stylised, even here. */
+.panel-track-moderator {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  padding-bottom: var(--space-md);
+  border-bottom: var(--border-thin);
+  margin-bottom: 0;
+}
+
+.panel-moderator-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.panel-speaker-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  padding-block: var(--space-md);
+  border-bottom: var(--border-thin);
+}
+
+.panel-speaker-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Real names stay in the body face — legible over stylised. */
+.speaker-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--color-text);
+}
+
+.speaker-role {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
   }
 }
 
